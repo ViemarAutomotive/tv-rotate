@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Rotação de Telas</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    iframe {
+      width: 100vw;
+      height: 100vh;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <iframe id="displayFrame" src=""></iframe>
+
+  <script>
+    const links = [
+      "https://bi.viemar.com.br/",
+      "https://glpi.viemar.com.br/glpi/"
+    ];
+
+    let current = 0;
+    const intervalo = 10000; // tempo em milissegundos (ex: 10000 = 10 segundos)
+
+    function rotateLinks() {
+      document.getElementById("displayFrame").src = links[current];
+      current = (current + 1) % links.length;
+    }
+
+    rotateLinks(); // exibe o primeiro
+    setInterval(rotateLinks, intervalo);
+  </script>
+</body>
+</html>
